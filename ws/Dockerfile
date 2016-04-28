@@ -7,6 +7,7 @@ RUN apt-get update && \
         libapache2-mod-php5 \
         git \
         netcat \
+        acl \
         php5-pgsql \
         php5-curl \
         php5-intl \
