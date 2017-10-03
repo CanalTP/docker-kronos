@@ -14,14 +14,14 @@ RUN apt-get update && \
         php7.1-pgsql \
         php7.1-curl \
         php7.1-intl \
+        php7.1-mbstring \
+        php7.1-bcmath \
+        php7.1-zip \
         php-pear \
         php-memcache \
         php-memcached \
         php-xdebug && \
-    rm -rf /var/lib/apt/lists/* && \
-    pecl channel-update pecl.php.net && \
-    pecl install apcu
-
+    rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite
 
@@ -29,7 +29,7 @@ ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
 ADD apache2_kronos-ws.local /etc/apache2/sites-available/kronos-ws.local.conf
-RUN a2ensite kronos-ws.local.conf && a2dissite default
+RUN a2ensite kronos-ws.local.conf
 
 ADD composer.phar /usr/local/bin/composer
 
