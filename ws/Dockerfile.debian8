@@ -29,7 +29,7 @@ ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
 ADD apache2_kronos-ws.local /etc/apache2/sites-available/kronos-ws.local.conf
-RUN a2ensite kronos-ws.local.conf
+RUN a2ensite kronos-ws.local.conf && a2dissite 000-default
 
 ADD composer.phar /usr/local/bin/composer
 
