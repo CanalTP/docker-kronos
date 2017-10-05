@@ -1,0 +1,28 @@
+FROM debian:jessie
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -yq install apt-transport-https ca-certificates && \
+    echo 'deb https://packages.sury.org/php/ jessie main' > /etc/apt/sources.list.d/sury.list && \
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -yq --force-yes install \
+        curl \
+        git \
+        netcat \
+        python-pip \
+        python-dev \
+        build-essential \
+        protobuf-compiler \
+        libpq-dev \
+        supervisor \
+        php7.1-pgsql \
+        php7.1-curl \
+        php7.1-intl \
+        php7.1-mbstring \
+        php7.1-bcmath \
+        php7.1-zip \
+        php-pear \
+        php-memcache \
+        php-memcached && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN pip install virtualenv
