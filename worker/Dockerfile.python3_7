@@ -1,0 +1,5 @@
+FROM python:3.7-alpine
+
+RUN apk add --no-cache postgresql-dev gcc musl-dev protobuf netcat-openbsd
+RUN pip install --install-option="--prefix=/install" protobuf==3.1.0.post1
+RUN pip install virtualenv
