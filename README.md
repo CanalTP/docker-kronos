@@ -12,7 +12,8 @@ For debian8 (php7) images :
     
 For worker python 3.7 images :
 
-    ./worker/build.sh -python3
+    cd worker
+    ./build.sh -python3
 
 
 As of now, those images are intended only to be used as a development environment
